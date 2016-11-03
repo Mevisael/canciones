@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Listado de users{% endblock %}
+
+{% block content1 %}
+    
+            <div class="page-header">
+                <h2>Registro Usuario</h2>
+            </div>
+
+            <form method="post" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Registrar</button>
+            </form>
+       
+{% endblock %}

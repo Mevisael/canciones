@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block titulo %} Canciones {% endblock %}
+{% block content %}
+			<div class="row">
+           	 <div class="col-md-4">
+
+				<p color="black"><strong>Avatar</strong></p>	
+				
+			    	<a class="thumbnail">
+
+			      		<img src="{{ MEDIA_URL }}{{ profile.avatar }}" alt="" width="200" height="200">
+			    	</a>
+			  
+				<p color="black"><strong>Email:</strong></p>
+				<p>{{ profile.email }}</p>
+				<p color="black"><strong>Nombre de usuario:</strong></p>
+				<p>{{ profile.user.username }}</p>
+
+				<p><a class="btn btn-info btn active" role="button" href="/editar_contrasena/">Cambiar Contraseña</a></p>
+						
+				 </div><!--/panel-->
+
+               </div>
+
+			
+	
+
+{% endblock content %}

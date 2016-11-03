@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block titulo %}Sfotipy | Explorar{% endblock %}
+
+{% block content %}
+	    <br><br><br>
+	     {% load staticfiles %}
+			<div class="row">
+				<div class="col-xs-6 col-md-3">
+			    	<a href="/Gender/1" class="thumbnail">
+
+			      		<img src="{{ MEDIA_URL }}sfotipy/regaeton.png" alt="" width="200" height="200">
+			    	</a>
+			  	</div>
+			    <div class="col-xs-6 col-md-3">
+				    <a href="/Gender/2" class="thumbnail">
+				      <img src="{{ MEDIA_URL }}sfotipy/electronica1.png" alt="..." width="200" height="200">
+				    </a>
+  				</div>
+  				<div class="col-xs-6 col-md-3">
+				    <a href="/Gender/3" class="thumbnail">
+				      <img src="{{ MEDIA_URL }}sfotipy/ejercicio.png" alt="..." width="200" height="200">
+				    </a>
+  				</div>
+  				<div class="col-xs-6 col-md-3">
+				    <a href="/Gender/4" class="thumbnail">
+				      <img src="{{ MEDIA_URL }}sfotipy/hiphop.png" alt="..." width="200" height="200">
+				    </a>
+  				</div>
+  				<div class="col-xs-6 col-md-3">
+				    <a href="/Gender/5" class="thumbnail">
+				      <img src="{{ MEDIA_URL }}sfotipy/romatica.png" alt="..." width="200" height="200">
+				    </a>
+  				</div>
+  				<div class="col-xs-6 col-md-3">
+				    <a href="/Gender/6" class="thumbnail">
+				      <img src="{{ MEDIA_URL }}sfotipy/clasica.png" alt="..." width="200" height="200">
+				    </a>
+  				</div>
+  				<div class="col-xs-6 col-md-3">
+				    <a href="/Gender/7" class="thumbnail">
+				      <img src="{{ MEDIA_URL }}sfotipy/rock.png" alt="..." width="200" height="200">
+				    </a>
+  				</div>
+  				<div class="col-xs-6 col-md-3">
+				    <a href="/Gender/8" class="thumbnail">
+				      <img src="{{ MEDIA_URL }}sfotipy/metal.png" alt="..." width="200" height="200">
+				    </a>
+  				</div>
+  			</div>
+		
+	 
+
+	
+{% endblock content %}

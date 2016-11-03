@@ -1,0 +1,62 @@
+{% if articles.count > 0 %}
+<hr>
+<p>Resultados: {{ articles.count }}</p>  
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre canción</th>
+        <th>Reproductor</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody id="cuerpo">
+      {% for article in articles %}
+
+    <td>
+     {{ article.nametrack }}- {{article.artist.nameartist}}
+    </td>
+
+    <td>
+               <audio preload="none" tabindex="0" controls="">
+            <source src="/media/{{ article.filetrack }}"/>  
+        </audio>   
+        
+     
+    </td>
+
+    <td>       
+      <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Agregar a playlist
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            {% for lista in user.playlist_set.all %}
+              <li >
+                 <form action="/agregar_cancion/{{ article.id }}/{{ lista.id }}/">
+                    <input type="submit" value="{{ lista.nameplaylist }}" class="btn btn-link">
+                </form>
+              </li>
+
+            {% endfor %}
+
+
+        </ul>
+      </div>
+    </td>
+
+    </tr>
+  
+
+  
+{% endfor %}
+
+{% else %}
+
+{% endif %}
+
+    </tbody>
+
+  </table>
+
+  <br><br><br><br><br><br><br><br><br>
+

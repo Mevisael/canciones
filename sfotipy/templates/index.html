@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Sfotipy | Explorar{% endblock %}
+
+{% block content %}
+  
+					       <table class="table table-hover">
+						    <thead>
+						      <tr>
+						        <th>Albúm</th>
+						        
+						      </tr>
+						    </thead>
+						    <tbody>
+						   
+						     {% for alb in album %}
+						      <tr class= "playlist">
+						        <td><a href="/track_album/{{alb.id}}"><img src="/media/{{alb.cover}}" alt="{{alb.namealbum}}" width="30" height="30"> {{alb.namealbum}}
+					       	  </a></td>
+						        
+						        
+						     
+								
+					      
+							</tr>
+							{% endfor %}
+
+							<table class="table table-hover">
+						    <thead>
+						      <tr>
+						        <th>Artistas</th>
+						        
+						      </tr>
+						    </thead>
+						    <tbody>
+						   
+						     {% for ar in artist %}
+						      <tr class= "playlist">					       			
+						        </td>
+						        <td><a href="/track_artist/{{ar.id}}">{{ar.nameartist}}</a></td>
+						        
+						     
+								
+					      
+							</tr>
+							{% endfor %}
+		
+{% endblock content %}

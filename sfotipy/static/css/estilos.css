@@ -1,0 +1,121 @@
+/* Aquí van los CSS */
+img {
+	/*width: 100%*/
+}
+
+#can{
+  background-color: white;
+  border-color: white;
+  border: none;
+}
+
+#login {
+  padding-top: 80px;
+  min-width: 700px;
+}
+
+.play {
+  padding-top: 0px;
+  min-width: 700px;
+
+}
+
+#pseudolink { 
+   cursor:pointer; 
+   }
+
+.container, body{
+	background:#666;
+  background-image: 
+
+	/*background-color: #D3CAE9;*/
+}
+
+.well {
+    background-color: white;
+}
+
+.playli{
+    color:white;
+    background-color: #151515;
+    padding:3px;
+    text-align: center;
+
+}
+#cancion{
+  border-radius: 1px;
+    color:white;
+    background-color: white;
+     transition: all 0.5s ease;
+}
+.well ul{
+list-style: none;
+}
+ #well.affix-top {
+    position: static;
+    margin-top:40px;
+    width:228px;
+  }
+
+  #well.affix {
+    position: fixed;
+    top:70px;
+    width:228px;
+  }
+.pie {
+  color: black;
+  text-align: center;
+  padding-top: 12px;
+}
+
+.form-group, h2, strong, #escucha, #control-label, label, #letrapie{
+	color: black;
+}
+
+.play, #suscritos{
+  color: black;
+}
+
+#piepagina{
+  background:#333;
+  padding:5px;
+}
+
+#playlist,audio{background:#666;width:400px;padding:20px;}
+.active a{color:#5DB0E6;text-decoration:none;}
+li a:hover{text-decoration:none;}
+#nombre{
+  color:white;
+}
+
+.fixed {
+        position: fixed;
+        width: 25%;
+}
+.scrollit {
+        float: left;
+        width: 71%
+}
+
+#divaudio {
+    display: table;
+    margin: 0 auto;
+    width: 20px;
+
+}
+#divaudio img {
+   text-align: center;
+    
+}
+
+
+audio {
+  width: 280px;
+  margin: 0 auto;
+}
+
+#conte {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

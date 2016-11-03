@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Sfotipy | Nueva playlist{% endblock %}
+
+{% block content %}
+<hr>
+		<div class="error">
+	{{ form.errors }}
+</div>
+
+<form action="{% if accion == 'insert' %}/insert_playlist/{% else %}/update_playlist/{% endif %}"method ="post">
+	{% csrf_token %}
+
+	{{ form.as_p }}
+	
+	<input type="hidden" name="owner" value="{{ user.id }}">
+	<input type="submit" value="Crear">
+</form>
+{% endblock %}

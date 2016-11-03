@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block titulo %} Sfotipy | Búsqueda de canciones {% endblock %}
+{% block content %}
+
+                <div class="row">
+             <div class="col-md-8">
+               
+              
+               <h4>Canciones disponibles</h4>
+                 
+
+              {% csrf_token %}
+    
+               
+       
+                <p><strong>Buscar: (Ingrese un criterio de búsqueda)</strong></p>
+                    <input type="text" class="form-control input-lg" placeholder="Buscar canciones" id="search" name="search"/>
+                    
+                
+       <div id = "search_results">
+
+
+       </div> 
+          
+        
+                </div><!--/panel-->
+          
+    
+              
+
+                <div class="col-md-4">  
+              
+          
+      </div>
+
+      </div>
+
+
+{% load staticfiles %}
+
+
+<script src="{% static 'js/app.js' %}"></script>
+<script src="{% static 'js/bootbox.min.js' %}"></script>
+<script src="{% static 'js/notify.js' %}"></script>
+
+{% endblock %}

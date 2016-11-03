@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Sfotipy | Canciones Artista{% endblock %}
+
+{% block content %}
+  
+          <div class="row">
+           	 <div class="col-md-8">
+               
+	        		 
+					       <table class="table table-hover">
+						    <thead>
+						      <tr>
+						        <th>Canción</th>
+						        <th>Albúm</th>
+						        <th>Acción</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						   
+						     {% for listat in tracks %}
+						      <tr class= "playlist">
+						        <td><img src="/media/{{listat.album.cover}}" alt="" width="30" height="30">
+					       			
+						            <a href="/media/{{listat.filetrack}}" nametrack="{{listat.nametrack}} - {{listat.artist.nameartist}}" namealbum = "/media/{{listat.album.cover}}">
+						              {{listat.nametrack}} - {{listat.artist.nameartist}} 
+						            </a>
+						        </td>
+						        <td>{{listat.album.namealbum}}</td>
+						        <td><div class="btn-group"><button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Agregar a lista<span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu">
+								   {% if user.playlist_set.count > 0 %}
+			                         {% for lista in user.playlist_set.all %}
+			                        
+			                         <li><a href="/agregar_cancion/{{ listat.id }}/{{ lista.id }}/">{{lista.nameplaylist}}</a></li>
+			                                             
+			                       {% endfor %}
+			                       {% endif %}
+								  </ul>
+								  </div></td>
+
+								
+					      
+							</tr>
+							{% endfor %}
+							  
+						    </tbody>
+						  </table>
+						  <br><br><br><br><br>
+
+						
+						
+						
+				
+					
+                </div><!--/panel-->
+
+                <div class="col-md-4">	
+	          	<div align="center" id="divaudio">
+	             <br><br>
+	             	<img src="{{ MEDIA_URL }}sfotipy/play.png" alt=""  width="310" height="310" id="portada">
+	             	<p id="escucha"></p>
+	             	
+				    <audio id="audio" autoplay preload="auto" tabindex="0" controls="" >
+				  		<source src=""/>  
+					</audio>    
+	             	         
+	             </div>
+				</div>
+          
+			</div>
+		
+      
+
+		
+{% endblock content %}

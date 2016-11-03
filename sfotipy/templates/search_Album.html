@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+     <div class="row">
+             <div class="col-md-8">
+               
+    <h2>Busqueda de Canciones por Album</h2>
+
+    <p>
+    <form action="#" id="frmBuscarCA">
+        	{% csrf_token %}
+        	<input type="search" name="busqueda" placeholder="Buscar Aquí">
+        	<input type="submit" value="Buscar canciones">
+        </form>
+    </p>
+
+    <table class="table table-hover">
+    	<thead>
+    		<tr>
+    			<th>Nombre canción</th>
+    			<th>Album</th>
+    		</tr>
+    	</thead>
+    	<tbody id="cuerpo">
+         <tr class= "playlist">
+         </tr>   
+        </tbody>
+    </table>
+	
+
+                </div><!--/panel-->
+
+                <div class="col-md-4">  
+                <div align="center" id="divaudio">
+                 <br><br>
+                    <img src="{{ MEDIA_URL }}sfotipy/play.png" alt=""  width="310" height="310" id="portada">
+                    <p id="escucha"></p>
+                    
+                    <audio id="audio" autoplay preload="auto" tabindex="0" controls="" >
+                        <source src=""/>  
+                    </audio>    
+                             
+                 </div>
+                </div>
+          </div>
+            </div>
+
+{% endblock %}

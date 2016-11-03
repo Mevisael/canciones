@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Sfotipy | Perfil de usuario{% endblock %}
+
+{% block content %}
+  
+          <div class="row">
+           	 <div class="col-md-8">
+           	 <strong>Perfil de {{ owner.username }}</strong><br>
+               
+			{% if owner.playlist_set.count > 0 %}
+	        {% for lista in listas %}
+	        	
+	        		
+	        		
+						<section class="playli"><p>{{lista.nameplaylist}}</p></strong></section>
+
+													     			
+					      
+					       <table class="table table-hover">
+						    <thead>
+						      <tr>
+						        <th>Canción</th>
+						        <th>Albúm</th>
+						        <th>Acción</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						    
+						     {% for listatracks in lista.track.all %}
+						      <tr class= "playlist">
+						        <td ><img src="/media/{{listatracks.album.cover}}" alt="" width="30" height="30">
+					       			
+						            <a href="/media/{{listatracks.filetrack}}" nametrack="{{listatracks.nametrack}} - {{listatracks.artist.nameartist}}" namealbum = "/media/{{listatracks.album.cover}}">
+						              {{listatracks.nametrack}} - {{listatracks.artist.nameartist}} 
+						            </a>
+						        </td>
+						        <td>{{listatracks.album.namealbum}}</td>
+						        <td><span id="pseudolink" class="glyphicon glyphicon-minus-sign" style="color:red" aria-hidden="true" onclick="location='/quitar_cancion/{{ listatracks.id }}/{{ lista.id }}'" title="Quitar canción"></span></td>
+						     
+								
+					      
+							</tr>
+							{% endfor %}
+
+
+						    </tbody>
+						  </table>
+						  <p>
+						<input type="hidden" value="{{lista.id}}">
+						<a class="btn btn-info btn active" role="button" href="/track/{{lista.id}}">
+						<span class="glyphicon glyphicon-music" aria-hidden="true"></span> Agregar Canción</a>
+						{% if user != owner %}
+							 {% if profile in lista.user.all %}
+				   				 <a class="btn btn-danger btn active" role="button" href="/quitar_lista/{{ lista.id }}">
+				   				 <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+				   				 Quitar suscripción de esta lista</a>
+				   			{% else %}
+				   				<a class="btn btn-success btn active" role="button" href="/seguir_lista/{{ lista.id }}">
+				   				<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span> Suscribirme a esta lista</a>	
+				   			{% endif %}			
+		        		{% endif %}
+
+		        		
+							
+						</p>
+												
+					
+							<p><strong id="suscritos">Suscritos ({{ lista.user.count }})</strong></p>
+							 {% for suscrito in lista.user.all %}
+					   			<li>
+					   				<a href="/user/{{ suscrito.user.id }}/">{{ suscrito.user.username }}</a>
+					   			</li>
+					 		  {% endfor %}
+						
+			       
+					
+				{% endfor %}
+			{% else %}
+				<p>Sin playlist aún</p>
+        	{% endif %}
+                 
+                    <div class="panel-body">
+                     
+                    </div><!--/panel-body-->
+                </div><!--/panel-->
+
+                <div class="col-md-4">	
+	          	<div align="center" id="divaudio">
+	             <br><br>
+	             	<img src="{{ MEDIA_URL }}sfotipy/play.png" alt=""  width="310" height="310" id="portada">
+	             	<p id="escucha"></p>
+	             	
+				    <audio id="audio" preload="auto" autoplay tabindex="0" controls="" >
+				  		<source src=""/>  
+					</audio>    
+	             	         
+	             </div>
+				</div>
+          
+			</div>
+		
+      
+
+		
+{% endblock content %}

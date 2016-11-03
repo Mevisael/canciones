@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Sfotipy | Perfil de usuario{% endblock %}
+
+{% block content %}
+  
+          <div class="row">
+           	 <div class="col-md-8">
+               
+	        		
+					       <table class="table table-hover">
+						    <thead>
+						      <tr>
+						        <th>Canción</th>
+						        <th>Albúm</th>
+						        <th>Acción</th>
+						      </tr>
+						    </thead>
+						    <tbody>
+						   
+						     {% for listat in tracks %}
+						      <tr class= "playlist">
+						        <td><img src="/media/{{listat.album.cover}}" alt="" width="30" height="30">
+					       			
+						            <a href="/media/{{listat.filetrack}}" nametrack="{{listat.nametrack}} - {{listat.artist.nameartist}}" namealbum = "/media/{{listat.album.cover}}">
+						              {{listat.nametrack}} - {{listat.artist.nameartist}} 
+						            </a>
+						        </td>
+						        <td>{{listat.album.namealbum}}</td>
+						        <td><span id="pseudolink" class="glyphicon glyphicon-minus-sign" style="color:red" aria-hidden="true" onclick="location='/quitar_cancion/{{ listat.id }}/{{ playlist.id }}'" title="Quitar canción"></span></td>
+						     
+								
+					      
+							</tr>
+							{% endfor %}
+							  
+						    </tbody>
+						  </table>
+
+						<p><a class="btn btn-info btn active" role="button" href="/track/{{playlist.id}}">Agregar canción</a></p>
+						
+						
+							<p><strong id="suscritos">Suscritos ({{ playlist.user.count }})</strong></p>
+							 {% for suscrito in playlist.user.all %}
+					   			<li>
+					   				<a href="/user/{{ suscrito.user.id }}/">{{ suscrito.user.username }}</a>
+					   			</li>
+					 		  {% endfor %}
+				
+					
+                </div><!--/panel-->
+
+                <div class="col-md-4">	
+	          	<div align="center" id="divaudio">
+	             <br><br>
+	             	<img src="{{ MEDIA_URL }}sfotipy/play.png" alt="" width="310" height="310" id="portada">
+	             	<p id="escucha"></p>
+	             	
+				    <audio id="audio" autoplay preload="auto" tabindex="0" controls="" >
+				  		<source src=""/>  
+					</audio>    
+	             	         
+	             </div>
+				</div>
+          
+			</div>
+		
+      
+
+		
+{% endblock content %}

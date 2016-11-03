@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+    <h2>Busqueda de Canciones por Artista</h2>
+
+    <p>
+    <form action="#" id="frmBuscarCAr">
+        	{% csrf_token %}
+        	<input type="search" name="busqueda" placeholder="Buscar Aquí">
+        	<input type="submit" value="Buscar canciones">
+        </form>
+    </p>
+
+    <table class="table table-hover">
+    	<thead>
+    		<tr>
+    			<th>Nombre canción</th>
+    			<th>Album</th>
+    			<th>Artista</th>
+    		</tr>
+    	</thead>
+    	<tbody id="cuerpo"></tbody>
+    </table>
+	
+
+{% endblock %}
